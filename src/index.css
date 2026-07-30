@@ -1,0 +1,86 @@
+@import "tailwindcss";
+
+@theme {
+  --color-cream: #F7EFDF;
+  --color-cream-deep: #EEE0C3;
+  --color-ink: #34281B;
+  --color-ink-soft: #5C4C39;
+  --color-gold: #AD8B54;
+  --color-gold-light: #D8BD8A;
+  --color-gold-deep: #8A6B3A;
+  --color-olive: #6C7554;
+  --color-olive-soft: #97A17C;
+  --color-blush: #C17E5E;
+  --color-sand: #EAD8B8;
+  --color-terracotta: #DDAE87;
+
+  --font-serif: 'Playfair Display', serif;
+  --font-sans: 'Jost', sans-serif;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  background: var(--color-cream);
+  font-family: var(--font-sans);
+  color: var(--color-ink);
+}
+
+::selection {
+  background: var(--color-gold-light);
+  color: var(--color-ink);
+}
+
+:focus-visible {
+  outline: 2px solid var(--color-gold-deep);
+  outline-offset: 3px;
+}
+
+a {
+  color: var(--color-ink);
+}
+
+a:hover {
+  color: var(--color-gold-deep);
+}
+
+@keyframes tbClinicScroll {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
+
+@keyframes tbFabBreathe {
+  0% { transform: scale(1); opacity: 0.4; }
+  35% { transform: scale(1.55); opacity: 0; }
+  100% { transform: scale(1.55); opacity: 0; }
+}
+
+@keyframes tbWordReveal {
+  0% { opacity: 0; transform: translateY(16px); }
+  100% { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes tbDustFloat {
+  0% { transform: translate(0, 0); }
+  100% { transform: translate(var(--tb-drift, 10px), var(--tb-rise, -40px)); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  [data-tb-clinic-track],
+  [data-tb-word],
+  [data-tb-dust],
+  [data-tb-ring] {
+    animation: none !important;
+  }
+  [data-tb-word] {
+    opacity: 1 !important;
+    transform: none !important;
+  }
+}
